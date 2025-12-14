@@ -1,0 +1,29 @@
+-- Insert teacher
+INSERT INTO Teachers VALUES
+(1, 'Ahmed Ali', 'Male', '03012345678', 'BS Mathematics');
+
+-- Insert subject
+INSERT INTO Subjects VALUES
+(1, 'Mathematics');
+
+-- Assign subject to teacher
+INSERT INTO Teacher_Subject VALUES
+(1, 1, 1);
+
+-- Insert salary record
+INSERT INTO Salary VALUES
+(1, 1, 'January', 40000);
+
+-- View all teachers
+SELECT * FROM Teachers;
+
+-- View teacher with subject
+SELECT t.name, s.subject_name
+FROM Teachers t
+JOIN Teacher_Subject ts ON t.teacher_id = ts.teacher_id
+JOIN Subjects s ON ts.subject_id = s.subject_id;
+
+-- View salary details
+SELECT t.name, sa.month, sa.amount
+FROM Teachers t
+JOIN Salary sa ON t.teacher_id = sa.teacher_id;
